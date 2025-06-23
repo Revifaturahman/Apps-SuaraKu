@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomeFragment"
+    tools:context=".view.HomeFragment"
     android:orientation="vertical"
     android:background="@color/white">
 
@@ -81,7 +81,7 @@
             android:textColor="@color/abu_gelap"
             />
         <Spinner
-            android:id="@+id/spinnerExample"
+            android:id="@+id/spinnerGender"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="wrap_content"/>
@@ -106,7 +106,7 @@
             android:textColor="@color/abu_gelap"
             />
         <Spinner
-            android:id="@+id/spinnerNada"
+            android:id="@+id/spinnerPitch"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="wrap_content"/>
