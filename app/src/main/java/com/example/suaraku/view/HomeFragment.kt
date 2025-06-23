@@ -12,11 +12,16 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SpinnerAdapter
 import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.suaraku.R
 import com.example.suaraku.adapter.SpinnerGenderAdapter
+import com.example.suaraku.data.model.Speak
 import com.example.suaraku.data.model.SpinnerGenderModel
 import com.example.suaraku.databinding.FragmentHomeBinding
+import com.example.suaraku.viewmodel.SpeakViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.util.Locale
 
 @AndroidEntryPoint
@@ -25,6 +30,13 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+//    View Binding
+    private val viewModel: SpeakViewModel by viewModels()
+
+    private var speak: Speak? = null
+
+    private var isBookmark = false
 
     //TTS
     private lateinit var tts: TextToSpeech
@@ -49,7 +61,7 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
         binding.spinnerGender.adapter = adapterGender
 
 //        Spinner Nada
-        val spinnerPitchList = listOf("Tinggi", "Sedang", "Rendah")
+        val spinnerPitchList = listOf("Tinggi", "Normal", "Rendah")
         val adapterPitch = ArrayAdapter(
             requireContext(),
             R.layout.spinner_item_pitch,
@@ -93,6 +105,93 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+//        speak = arguments?.getParcelable("speak")
+
+        binding.btnBookmark.setOnClickListener{
+            isBookmark = !isBookmark
+
+            // Ganti ikon
+            binding.btnBookmark.setImageResource(
+                if (isBookmark) R.drawable.ic_redlove else R.drawable.ic_love
+            )
+
+            if (isBookmark) {
+                // Ambil data input user
+                val text = binding.edtText.text?.toString().orEmpty()
+                val gender = when (binding.spinnerGender.selectedItemPosition) {
+                    0 -> "Laki-laki"
+                    1 -> "Perempuan"
+                    else -> "Laki-laki"
+                }
+                val pitch = when (binding.spinnerPitch.selectedItemPosition) {
+                    0 -> "Tinggi"
+                    1 -> "Normal"
+                    2 -> "Rendah"
+                    else -> "Normal"
+                }
+
+                lifecycleScope.launch {
+                    if (speak == null) {
+                        val speakNew = Speak(
+                            text = text,
+                            gender = gender,
+                            pitch = pitch
+                        )
+                        viewModel.insertSpeak(speakNew)
+                        Toast.makeText(requireContext(), "Data Berhasil Ditambahkan", Toast.LENGTH_SHORT).show()
+                    } else {
+                        // Update data lama
+                        val currentSpeak = speak
+                        if (currentSpeak != null) {
+                            val speakNew = Speak(
+                                id = currentSpeak.id,
+                                text = text,
+                                gender = gender,
+                                pitch = pitch
+                            )
+                            viewModel.updateSpeak(speakNew)
+                            Toast.makeText(requireContext(), "Data Berhasil Diupdate", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+
+            }
+        }
+
+        // Reset bookmark saat user mengetik atau klik EditText
+        binding.edtText.setOnClickListener {
+            isBookmark = false
+            binding.btnBookmark.setImageResource(R.drawable.ic_love)
+        }
+
+        // Reset bookmark saat user memilih gender
+        binding.spinnerGender.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?, view: View?, position: Int, id: Long
+            ) {
+                isBookmark = false
+                binding.btnBookmark.setImageResource(R.drawable.ic_love)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        // Reset bookmark saat user memilih pitch suara
+        binding.spinnerPitch.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?, view: View?, position: Int, id: Long
+            ) {
+                isBookmark = false
+                binding.btnBookmark.setImageResource(R.drawable.ic_love)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
     }
 
     override fun onInit(status: Int){
