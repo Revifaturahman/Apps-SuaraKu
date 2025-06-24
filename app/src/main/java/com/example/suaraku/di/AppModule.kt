@@ -18,7 +18,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideDatabase(@ApplicationContext, appContext: Context): AppDatabase{
+    fun provideDatabase(@ApplicationContext appContext: Context): AppDatabase{
         return Room.databaseBuilder(
             appContext,
             AppDatabase::class.java,
