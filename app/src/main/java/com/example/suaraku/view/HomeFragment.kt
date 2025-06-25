@@ -89,7 +89,7 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
 
                     if (selectedVoice != null){
                         tts.voice = selectedVoice
-                        Toast.makeText(requireContext(), "Suara: ${selectedVoice.name}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Suara: ${selected.label}", Toast.LENGTH_SHORT).show()
                     }else{
                         Toast.makeText(requireContext(), "Suara Tidak Ditemukan", Toast.LENGTH_SHORT).show()
                     }
@@ -110,7 +110,25 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        speak = arguments?.getParcelable("speak")
+        speak = arguments?.getParcelable("speak")
+        speak?.let {it ->
+            binding.edtText.setText(it.text)
+
+            val genderIndex = when(it.gender){
+                "Laki-laki" -> 0
+                "Perempuan" -> 1
+                else -> 0
+            }
+            binding.spinnerGender.setSelection(genderIndex)
+
+            val pitchIndex = when(it.pitch){
+                "Tinggi" -> 0
+                "Normal" -> 1
+                "Rendah" -> 2
+                else -> 1
+            }
+            binding.spinnerPitch.setSelection(pitchIndex)
+        }
 
         binding.btnBookmark.setOnClickListener{
                 // Ambil data input user
