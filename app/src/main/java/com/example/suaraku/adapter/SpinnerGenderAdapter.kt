@@ -11,7 +11,7 @@ import com.example.suaraku.databinding.SpinnerItemGenderBinding
 
 class SpinnerGenderAdapter(
     private val context: Context,
-    private val items: List<SpinnerGenderModel>
+    val items: List<SpinnerGenderModel>
 ): BaseAdapter() {
 
     override fun getCount(): Int {

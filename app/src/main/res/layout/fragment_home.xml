@@ -1,165 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.HomeFragment"
-    android:orientation="vertical"
-    android:background="@color/white">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:background="@color/white"
+    android:layout_margin="10dp">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/img_home"
-        />
-
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardElevation="6dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="16dp"
-        >
+        android:orientation="vertical"
+        android:padding="10dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/text"
-                android:textColorHint="@color/gray_dark"
-                android:padding="16dp"
-                app:boxBackgroundColor="@color/blue_muda">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <ImageButton
-                android:id="@+id/btn_bookmark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_love"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@id/layout_text"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:backgroundTint="@color/gray_black"
-                />
-        </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <!--        <com.google.android.material.card.MaterialCardView-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            app:cardElevation="4dp"-->
-    <!--            app:strokeColor="@color/black"-->
-    <!--            >-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20sp"
-        android:layout_marginEnd="20sp"
-        android:layout_marginTop="20sp"
-        android:padding="16dp"
-        >
-
-        <TextView
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Jenis Kelamin: "
-            android:layout_gravity="center"
-            android:textSize="16dp"
-            android:textColor="@color/abu_gelap"
-            />
-        <Spinner
-            android:id="@+id/spinnerGender"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="wrap_content"/>
+            android:orientation="horizontal">
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20sp"
-        android:layout_marginEnd="20sp"
-        android:padding="16dp"
-        >
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Nada: "
-            android:layout_gravity="center"
-            android:textSize="16dp"
-            android:textColor="@color/abu_gelap"
-            />
-        <Spinner
-            android:id="@+id/spinnerPitch"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="8dp"
-        android:layout_marginTop="16dp"
-        >
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/playSoundContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:cardBackgroundColor="@color/green_light"
-            app:contentPadding="5dp"
-            app:cardElevation="0dp"
-            >
-
-            <ImageButton
-                android:id="@+id/btn_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:src="@drawable/ic_volume"
-                app:tint="@color/white" />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/logo_suaraku" />
 
             <TextView
-                android:id="@+id/btn_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Putar Suara"
-                android:layout_marginStart="20sp"
-                android:textSize="16sp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:textColor="@color/white"/>
+                android:text="Suaraku"
+                android:layout_marginBottom="3dp"
+                android:textColor="@color/blue"
+                android:layout_gravity="center" />
 
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:strokeColor="@color/blue"
+            app:cardBackgroundColor="@color/blue_muda"
+            android:layout_marginTop="10dp"
+            android:minHeight="600dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/layout_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/text"
+                            android:textColorHint="@color/gray_dark"
+                            android:padding="16dp"
+                            app:boxBackgroundColor="@color/blue_muda">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <ImageButton
+                            android:id="@+id/btn_bookmark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_love"
+                            android:layout_alignParentEnd="true"
+                            android:layout_below="@id/layout_text"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:backgroundTint="@color/gray_black" />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Jenis Kelamin: "
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="@color/abu_gelap" />
+
+                    <Spinner
+                        android:id="@+id/spinnerGender"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Nada: "
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="@color/abu_gelap" />
+
+                    <Spinner
+                        android:id="@+id/spinnerPitch"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:layout_marginTop="16dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/playSoundContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="@color/green_light"
+                        app:contentPadding="5dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="8dp">
+
+                            <ImageButton
+                                android:id="@+id/btn_img"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:src="@drawable/ic_volume"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/btn_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Putar Suara"
+                                android:layout_marginStart="8dp"
+                                android:textSize="16sp"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
-    <!--        </com.google.android.material.card.MaterialCardView>-->
-
-</LinearLayout>
-
 </ScrollView>

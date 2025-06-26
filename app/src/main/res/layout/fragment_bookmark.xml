@@ -4,7 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="10dp"
     tools:context=".view.BookmarkFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo_suaraku" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Suaraku"
+            android:layout_marginBottom="3dp"
+            android:textColor="@color/blue"
+            android:layout_gravity="center" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textEmpty"

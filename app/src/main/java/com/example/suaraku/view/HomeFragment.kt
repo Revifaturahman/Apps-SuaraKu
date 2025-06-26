@@ -114,12 +114,13 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
         speak?.let {it ->
             binding.edtText.setText(it.text)
 
-            val genderIndex = when(it.gender){
-                "Laki-laki" -> 0
-                "Perempuan" -> 1
-                else -> 0
+            val genderIndex = (binding.spinnerGender.adapter as SpinnerGenderAdapter).items
+                .indexOfFirst { genderModel -> genderModel.label == it.gender }
+
+            if (genderIndex != -1) {
+                binding.spinnerGender.setSelection(genderIndex)
             }
-            binding.spinnerGender.setSelection(genderIndex)
+
 
             val pitchIndex = when(it.pitch){
                 "Tinggi" -> 0
@@ -194,7 +195,7 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
                     tts.voice = defaultVoice
                 }
 
-                binding.spinnerGender.setSelection(0)
+//                binding.spinnerGender.setSelection(0)
             }
         } else {
             binding.playSoundContainer.isEnabled = false
