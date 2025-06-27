@@ -19,6 +19,11 @@ class SpeakAdapter(private val onClick: (Speak) -> Unit, private val onDeleteCli
             binding.genderValue.text = speak.gender
             binding.pitchValue.text = speak.pitch
 
+//            Ubah warna delete
+            binding.deleteSpeak.setColorFilter(
+                androidx.core.content.ContextCompat.getColor(binding.root.context, android.R.color.holo_red_light)
+            )
+
             binding.root.setOnClickListener {
                 onClick(speak)
             }

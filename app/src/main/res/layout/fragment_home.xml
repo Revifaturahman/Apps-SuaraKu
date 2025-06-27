@@ -78,12 +78,11 @@
                             android:id="@+id/btn_bookmark"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/ic_love"
+                            android:background="@drawable/ic_redlove"
                             android:layout_alignParentEnd="true"
                             android:layout_below="@id/layout_text"
                             android:layout_marginEnd="20dp"
-                            android:layout_marginBottom="20dp"
-                            android:backgroundTint="@color/gray_black" />
+                            android:layout_marginBottom="20dp" />
                     </RelativeLayout>
                 </com.google.android.material.card.MaterialCardView>
 

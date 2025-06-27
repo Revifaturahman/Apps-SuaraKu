@@ -21,6 +21,7 @@ import com.example.suaraku.data.model.SpinnerGenderModel
 import com.example.suaraku.databinding.FragmentHomeBinding
 import com.example.suaraku.viewmodel.SpeakViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.Locale
 
@@ -89,7 +90,7 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
 
                     if (selectedVoice != null){
                         tts.voice = selectedVoice
-                        Toast.makeText(requireContext(), "Suara: ${selected.label}", Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(requireContext(), "Suara: ${selected.label}", Toast.LENGTH_SHORT).show()
                     }else{
                         Toast.makeText(requireContext(), "Suara Tidak Ditemukan", Toast.LENGTH_SHORT).show()
                     }

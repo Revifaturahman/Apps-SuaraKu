@@ -86,6 +86,8 @@ class BookmarkFragment : Fragment() {
                 binding.rcSpeak.visibility = View.VISIBLE
             }
         }
+
+        viewModel.loadSpeak()
     }
 
     override fun onDestroyView() {
