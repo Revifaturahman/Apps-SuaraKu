@@ -15,9 +15,9 @@ class SpeakAdapter(private val onClick: (Speak) -> Unit, private val onDeleteCli
     class ViewHolder(private val binding: ItemSpeakBinding
     ): RecyclerView.ViewHolder(binding.root){
         fun bind(speak: Speak, onClick: (Speak) -> Unit, onDeleteClick: (Speak) -> Unit){
-            binding.textValue.text = speak.text
-            binding.genderValue.text = speak.gender
-            binding.pitchValue.text = speak.pitch
+            binding.textValue.text = "Teks: ${speak.text}"
+            binding.genderValue.text = "Jenis Kelamin: ${speak.gender}"
+            binding.pitchValue.text = "Nada: ${speak.pitch}"
 
 //            Ubah warna delete
             binding.deleteSpeak.setColorFilter(

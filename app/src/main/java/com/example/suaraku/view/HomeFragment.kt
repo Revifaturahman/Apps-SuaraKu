@@ -37,7 +37,7 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
 
     private var speak: Speak? = null
 
-//    private var isBookmark = false
+    private var isTTSReady = false
 
     //TTS
     private lateinit var tts: TextToSpeech
@@ -78,23 +78,25 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
-                id: Long
-            ) {
+                id: Long) {
                 val selected = binding.spinnerGender.selectedItem as SpinnerGenderModel
-                if (availableVoice.isNotEmpty()){
-                    val selectedVoice = when (selected.label){
-                        "Laki-laki" -> availableVoice.find{it.name == "id-id-x-ide-local"}
-                        "Perempuan" -> availableVoice.find{it.name == "id-id-x-idc-local"}
+
+                if (isTTSReady && availableVoice.isNotEmpty()) {
+                    val selectedVoice = when (selected.label) {
+                        "Laki-laki" -> availableVoice.find { it.name == "id-id-x-ide-local" }
+                        "Perempuan" -> availableVoice.find { it.name == "id-id-x-dfz-local" }
                         else -> null
                     }
 
-                    if (selectedVoice != null){
+                    if (selectedVoice != null) {
                         tts.voice = selectedVoice
-//                        Toast.makeText(requireContext(), "Suara: ${selected.label}", Toast.LENGTH_SHORT).show()
-                    }else{
+                        Toast.makeText(requireContext(), "Suara: ${selected.label}", Toast.LENGTH_SHORT).show()
+//                        Log.d("VOICE_SELECTED", "Voice dipilih: ${selectedVoice.name}")
+                    } else {
                         Toast.makeText(requireContext(), "Suara Tidak Ditemukan", Toast.LENGTH_SHORT).show()
                     }
                 }
+
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("Not yet implemented")
@@ -173,52 +175,63 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
         }
     }
 
-    override fun onInit(status: Int){
-        if (status == TextToSpeech.SUCCESS){
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
             tts.language = Locale("id", "ID")
 
-            for (voice in tts.voices){
-                if (voice.locale.language == "id") {
-                    Log.d("TTS_VOICES", "Locale: ${voice.locale}, Name: ${voice.name}")
-                }
+            // Filter hanya yang locale in_ID
+            availableVoice = tts.voices.filter { it.locale.toString() == "in_ID" }
+
+            isTTSReady = true
+            binding.playSoundContainer.isEnabled = true
+
+            //Atur voice default (boleh pilih salah satu dari availableVoice)
+            val defaultVoice = availableVoice.find { it.name == "id-id-x-idd-network" }
+            if (defaultVoice != null) {
+                tts.voice = defaultVoice
             }
 
-            availableVoice = tts.voices.filter {
-                it.locale.language == "id"
-            }
-
-            if (availableVoice.isNotEmpty()){
-                binding.playSoundContainer.isEnabled = true
-
-                // Set voice default ke laki-laki
-                val defaultVoice = availableVoice.find { it.name == "id-id-x-ide-local" }
-                if (defaultVoice != null) {
-                    tts.voice = defaultVoice
-                }
-
-//                binding.spinnerGender.setSelection(0)
-            }
+            // Trigger ulang gender spinner
+            binding.spinnerGender.setSelection(binding.spinnerGender.selectedItemPosition)
         } else {
             binding.playSoundContainer.isEnabled = false
+            Toast.makeText(requireContext(), "TTS Gagal diinisialisasi", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun speakOut(){
+    private fun speakOut() {
         val text = binding.edtText.text.toString()
         val selectedPitch = binding.spinnerPitch.selectedItem.toString()
-//        binding.spinnerPitch.setSelection(1)
-
-        val pitchValue = when(selectedPitch){
+        val pitchValue = when (selectedPitch) {
             "Tinggi" -> 1.5f
             "Normal" -> 1.0f
             "Rendah" -> 0.8f
             else -> 1.0f
         }
+
         tts.setPitch(pitchValue)
-        if (text.isNotEmpty()){
-            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
-        }else{
-            Toast.makeText(requireContext(), "Harap Isi Text", Toast.LENGTH_SHORT).show()
+
+        // 🆕 Tambahkan pemilihan suara berdasarkan spinner saat ini
+        val selectedGender = (binding.spinnerGender.selectedItem as SpinnerGenderModel).label
+        val selectedVoice = when (selectedGender) {
+            "Laki-laki" -> availableVoice.find { it.name == "id-id-x-ide-local" }
+            "Perempuan" -> availableVoice.find { it.name == "id-id-x-idc-local" }
+            else -> null
+        }
+
+        if (selectedVoice != null) {
+            tts.voice = selectedVoice
+//            Log.d("VOICE_SPEAK", "Voice dipilih ulang sebelum speak(): ${selectedVoice.name}")
+        } else {
+//            Log.d("VOICE_SPEAK", "Voice tidak ditemukan berdasarkan gender: $selectedGender")
+        }
+
+        if (text.isNotEmpty()) {
+            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
+            }, 300)
+        } else {
+            Toast.makeText(requireContext(), "Harap isi teks terlebih dahulu", Toast.LENGTH_SHORT).show()
         }
     }
 

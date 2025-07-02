@@ -29,8 +29,10 @@
     <TextView
         android:id="@+id/textEmpty"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="Data Masih kosong"
+        android:textSize="20sp"
+        android:gravity="center"
         android:visibility="gone"
         />
 
@@ -38,6 +40,7 @@
         android:id="@+id/rcSpeak"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:visibility="visible"
         android:layout_weight="1"/>
 
 </LinearLayout>
