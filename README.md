@@ -17,13 +17,14 @@
 ## 📸 Screenshot
 
 ### Home
-![Tampilan Aplikasi](https://github.com/user-attachments/assets/b1cc8d29-05bf-412c-998e-a37fbf5de4d6)
+<img src="https://github.com/user-attachments/assets/b1cc8d29-05bf-412c-998e-a37fbf5de4d6" width="300" />
 
 ### Bookmark
-![Tampilan Aplikasi](https://github.com/user-attachments/assets/93df4edf-7521-4781-b2ba-a33f416912e5)
+<img src="https://github.com/user-attachments/assets/93df4edf-7521-4781-b2ba-a33f416912e5" width="300" />
 
 ### Info
-![Tampilan Aplikasi](https://github.com/user-attachments/assets/b968c8c8-a7ee-4a0d-a196-0fece945dccd)
+<img src="https://github.com/user-attachments/assets/b968c8c8-a7ee-4a0d-a196-0fece945dccd" width="300" />
+
 
 ---
 
