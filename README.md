@@ -81,8 +81,7 @@ suaraku/
 │       ├── values/              # Strings, Styles, Colors, dll.
 │       └── xml/                 # Konfigurasi tambahan
 ├── build.gradle                 # Konfigurasi Gradle
-└── ...                          # File dan folder lainnya
-```                            # File dan folder lain
+└── ...                          # File dan folder lainnya                            
 
 ---
 
