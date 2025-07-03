@@ -16,7 +16,14 @@
 
 ## 📸 Screenshot
 
-> *(Tambahkan gambar UI kamu di sini jika tersedia)*
+### Home
+![Tampilan Aplikasi](https://github.com/user-attachments/assets/b1cc8d29-05bf-412c-998e-a37fbf5de4d6)
+
+### Bookmark
+![Tampilan Aplikasi](https://github.com/user-attachments/assets/93df4edf-7521-4781-b2ba-a33f416912e5)
+
+### Info
+![Tampilan Aplikasi](https://github.com/user-attachments/assets/b968c8c8-a7ee-4a0d-a196-0fece945dccd)
 
 ---
 
@@ -75,7 +82,10 @@ suaraku/
 ├── build.gradle                   # Konfigurasi Gradle
 └── ...                            # File dan folder lain
 
-MIT License
+---
+
+
+## MIT License
 
 Copyright (c) 2025 Revi Faturahman
 
