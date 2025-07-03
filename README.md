@@ -64,24 +64,25 @@ suaraku/
 ├── app/
 │   ├── manifests/
 │   │   └── AndroidManifest.xml
-│   ├── kotlin+java/
+│   ├── java/ atau kotlin/
 │   │   └── com.example.suaraku/
-│   │       ├── adapter/           # Adapter untuk Spinner/RecyclerView
-│   │       ├── data/              # Model dan Database
-│   │       ├── di/                # Dependency Injection (Hilt Modules)
-│   │       ├── repository/        # (Opsional) Layer Repository
-│   │       ├── view/              # UI (Fragment, Activity)
-│   │       ├── viewmodel/         # ViewModel
-│   │       └── MyApp.kt           # Kelas Application
+│   │       ├── adapter/         # Adapter untuk Spinner/RecyclerView
+│   │       ├── data/            # Model dan Database
+│   │       ├── di/              # Dependency Injection (Hilt Modules)
+│   │       ├── repository/      # (Opsional) Layer Repository
+│   │       ├── view/            # UI (Fragment, Activity)
+│   │       ├── viewmodel/       # ViewModel
+│   │       └── MyApp.kt         # Kelas Application
 │   └── res/
-│       ├── drawable/              # Gambar ikon dan aset grafis lainnya
-│       ├── layout/                # File XML layout
-│       ├── menu/                  # Menu XML
-│       ├── mipmap/                # Ikon launcher
-│       ├── values/                # Strings, Styles, Colors, dll.
-│       └── xml/                   # Konfigurasi tambahan
-├── build.gradle                   # Konfigurasi Gradle
-└── ...                            # File dan folder lain
+│       ├── drawable/            # Gambar ikon dan aset grafis lainnya
+│       ├── layout/              # File XML layout
+│       ├── menu/                # Menu XML
+│       ├── mipmap/              # Ikon launcher
+│       ├── values/              # Strings, Styles, Colors, dll.
+│       └── xml/                 # Konfigurasi tambahan
+├── build.gradle                 # Konfigurasi Gradle
+└── ...                          # File dan folder lainnya
+```                            # File dan folder lain
 
 ---
 
