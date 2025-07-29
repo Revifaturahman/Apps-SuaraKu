@@ -1,4 +1,3 @@
-
 # 🎙️ Suaraku - Aplikasi Text-to-Speech Indonesia
 
 **Suaraku** adalah aplikasi Android yang memanfaatkan Text-to-Speech (TTS) untuk membaca teks berbahasa Indonesia. Pengguna dapat memilih jenis suara (Laki-laki / Perempuan), mengatur pitch (Tinggi / Normal / Rendah), serta menyimpan teks ke dalam daftar bookmark.
@@ -15,46 +14,57 @@
 
 ---
 
-## ⚠️ Disclaimer
+## 📸 Screenshot
 
-Aplikasi ini hanya dapat digunakan pada perangkat Android **versi 6 hingga 10**. Kompatibilitas di luar versi tersebut tidak dijamin.
+### Home
+<img src="https://github.com/user-attachments/assets/b1cc8d29-05bf-412c-998e-a37fbf5de4d6" width="300" />
 
----
+### Bookmark
+<img src="https://github.com/user-attachments/assets/93df4edf-7521-4781-b2ba-a33f416912e5" width="300" />
 
-## 📲 Cara Menggunakan
-
-1. Buka aplikasi
-2. Masukkan teks
-3. Pilih jenis suara dan pengaturan pitch
-4. Tekan tombol play untuk mendengarkan
-5. Simpan teks ke bookmark jika diinginkan
-
----
-
-## 📄 Lisensi
-
-Proyek ini dilisensikan di bawah [MIT License](LICENSE).
-
-## ✨ Penulis
-
-- **Revi Faturahman** – [GitHub](https://github.com/Revifaturahman)
+### Info
+<img src="https://github.com/user-attachments/assets/b968c8c8-a7ee-4a0d-a196-0fece945dccd" width="300" />
 
 
 ---
-## 📥 Cara Menginstal APK (via Itch.io)
 
-Jika Anda tidak ingin membangun proyek secara manual, Anda dapat langsung mencoba aplikasi dengan mengunduh APK melalui halaman Itch.io berikut:
+## 🚀 Cara Install & Jalankan
 
-🔗 **[Download APK SuaraKu via Itch.io](https://revifaturahman.itch.io/suaraku)**  
+1. Clone repositori:
+   ```bash
+   git clone https://github.com/namamu/suaraku.git
 
-### 📲 Langkah-langkah Instalasi:
+2. Buka di Android Studio:
+   - Buka Android Studio
+   - Pilih **"Open an Existing Project"**
+   - Arahkan ke folder `suaraku` yang telah kamu clone
 
-1. Buka link Itch.io di atas melalui browser HP atau PC.
-2. Klik tombol **Download** dan unduh file `SuaraKu.apk`.
-3. Jika mengunduh lewat PC, pindahkan file ke perangkat Android Anda.
-4. Di perangkat Android:
-   - Buka file `SuaraKu.apk`.
-   - Izinkan instalasi dari sumber tidak dikenal jika diminta.
-   - Ikuti proses instalasi hingga selesai.
-5. Jalankan aplikasi InfoCinema dan nikmati!
+3. Build & Jalankan Aplikasi:
+   - Pastikan kamu menggunakan emulator atau device fisik (Android)
+   - Klik tombol ▶️ (Run) di Android Studio
+   - Tunggu proses **Gradle Build** selesai
+   - Aplikasi akan otomatis berjalan di perangkatmu
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+- Kotlin
+- Android SDK
+- TextToSpeech API
+- MVVM (Model-View-ViewModel)
+- Room Database
+- ViewBinding
+- Dagger Hilt
+
+---
+
+## MIT License
+
+Copyright (c) 2025 Revi Faturahman
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction...
+
 
