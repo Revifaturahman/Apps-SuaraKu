@@ -1,7 +1,10 @@
 
 # 🎙️ Suaraku - Aplikasi Text-to-Speech Indonesia
 
-**Suaraku** adalah aplikasi Android yang memanfaatkan Text-to-Speech (TTS) untuk membaca teks berbahasa Indonesia. Pengguna dapat memilih jenis suara (Laki-laki / Perempuan), mengatur pitch (Tinggi / Normal / Rendah), serta menyimpan teks ke dalam daftar bookmark.
+**Suaraku** adalah aplikasi Android yang dirancang untuk membantu penyandang tunawicara dalam menyampaikan pesan mereka. Aplikasi ini menggunakan teknologi Text-to-Speech (TTS) untuk mengubah teks menjadi suara berbahasa Indonesia. Pengguna dapat memilih jenis suara (Laki-laki / Perempuan), mengatur pitch (Tinggi / Normal / Rendah), serta menyimpan teks penting ke dalam daftar bookmark untuk digunakan kembali.
+
+> *"Saat Teknologi Bicara untuk Mereka yang Tidak Bisa."*
+
 
 ---
 
@@ -14,6 +17,8 @@
 - 📋 **Deteksi dan Filter Suara Tersedia di Perangkat**
 
 ---
+
+
 
 ## ⚠️ Disclaimer
 
@@ -28,6 +33,25 @@ Aplikasi ini hanya dapat digunakan pada perangkat Android **versi 6 hingga 10**.
 3. Pilih jenis suara dan pengaturan pitch
 4. Tekan tombol play untuk mendengarkan
 5. Simpan teks ke bookmark jika diinginkan
+
+---
+
+
+## 📁 Struktur Proyek
+
+```
+com.revifaturahman.suaraku
+├── adapter
+├── data
+│   ├── dao
+│   ├── db
+│   └── model
+├── di
+├── repository
+├── view
+├── viewmodel
+└── MyApp.kt
+```
 
 ---
 
@@ -56,5 +80,5 @@ Jika Anda tidak ingin membangun proyek secara manual, Anda dapat langsung mencob
    - Buka file `SuaraKu.apk`.
    - Izinkan instalasi dari sumber tidak dikenal jika diminta.
    - Ikuti proses instalasi hingga selesai.
-5. Jalankan aplikasi InfoCinema dan nikmati!
+5. Jalankan aplikasi SuaraKu!
 
