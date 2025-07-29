@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.suaraku"
+    namespace = "com.revifaturahman.suaraku"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.suaraku"
+        applicationId = "com.revifaturahman.suaraku"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
