@@ -55,16 +55,6 @@ com.revifaturahman.suaraku
 
 ---
 
-## 📄 Lisensi
-
-Proyek ini dilisensikan di bawah [MIT License](LICENSE).
-
-## ✨ Penulis
-
-- **Revi Faturahman** – [GitHub](https://github.com/Revifaturahman)
-
-
----
 ## 📥 Cara Menginstal APK (via Itch.io)
 
 Jika Anda tidak ingin membangun proyek secara manual, Anda dapat langsung mencoba aplikasi dengan mengunduh APK melalui halaman Itch.io berikut:
@@ -81,4 +71,18 @@ Jika Anda tidak ingin membangun proyek secara manual, Anda dapat langsung mencob
    - Izinkan instalasi dari sumber tidak dikenal jika diminta.
    - Ikuti proses instalasi hingga selesai.
 5. Jalankan aplikasi SuaraKu!
+
+   
+---
+
+## 📄 Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+
+## ✨ Penulis
+
+- **Revi Faturahman** – [GitHub](https://github.com/Revifaturahman)
+
+
+
 
